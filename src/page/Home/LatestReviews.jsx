@@ -25,9 +25,7 @@ const LatestReviews = () => {
 
   return (
     <div className="py-10 px-4 max-w-screen-xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">
-        What Our Guests Say
-      </h2>
+      <h2 className="text-3xl font-bold text-center mb-8">Recent Reviews</h2>
 
       {loading ? (
         <p className="text-center">Loading...</p>

@@ -4,16 +4,45 @@ import axios from "axios";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
+  const [selectedRange, setSelectedRange] = useState("all");
+  console.log(selectedRange);
+
   useEffect(() => {
-    axios("http://localhost:3000/rooms").then((res) => setRooms(res.data));
-  }, []);
+    if (selectedRange === "all") {
+      axios("http://localhost:3000/rooms").then((res) => setRooms(res.data));
+    } else {
+      const [min, max] = selectedRange.split("-").map(Number);
+      axios
+        .get(`http://localhost:3000/rooms/filter?min=${min}&max=${max}`)
+        .then((res) => setRooms(res.data));
+    }
+  }, [selectedRange]);
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold text-center mb-8">Available Rooms</h1>
+
+      {/* 🔘 Price Filter */}
+      <div className="mb-6 text-center">
+        <label htmlFor="priceFilter" className="font-medium text-lg mr-2">
+          Filter by Price:
+        </label>
+        <select
+          id="priceFilter"
+          value={selectedRange}
+          onChange={(e) => setSelectedRange(e.target.value)}
+          className="border rounded px-4 py-2"
+        >
+          <option value="all">All Prices</option>
+          <option value="0-500">Under $500</option>
+          <option value="500-1000">$500 - $1000</option>
+          <option value="1000-1500">$1000 - $1500</option>
+          <option value="1500-5000">$1500 and above</option>
+        </select>
+      </div>
+
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {rooms.map((room) => (
-          <RoomCard key={room._id} room={room} />
-        ))}
+        {rooms?.length > 0 &&
+          rooms.map((room) => <RoomCard key={room._id} room={room} />)}
       </div>
     </div>
   );
