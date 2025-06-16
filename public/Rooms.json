@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Deluxe King Room",
+    "shortDescription": "Spacious room with king-size bed and city view.",
+    "longDescription": "This deluxe king room offers a luxurious experience with a soft king-sized bed, air conditioning, free Wi-Fi, and an amazing view of the city skyline.",
+    "image": "https://i.ibb.co/1Gs1Lhys/Deluxe-King-Room.webp",
+    "price": 120,
+    "location": "Dhaka",
+    "rating": 4.5,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Executive Suite",
+    "shortDescription": "Luxury suite with kitchen and bathtub.",
+    "longDescription": "Executive Suite includes a fully equipped kitchen, modern bathtub, spacious balcony with a beautiful view, and all premium amenities.",
+    "image": "https://i.ibb.co/ZpF2VKSc/Executive-Suite.webp",
+    "price": 200,
+    "location": "Sylhet",
+    "rating": 4.9,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Sea View Suite",
+    "shortDescription": "Enjoy the sea breeze from your private balcony.",
+    "longDescription": "A top-tier suite with uninterrupted views of the sea, private balcony, luxury bath, king-sized bed, and 24/7 room service.",
+    "image": "https://i.ibb.co/1Jjm760P/Sea-View-Suite.jpg",
+    "price": 180,
+    "location": "Cox's Bazar",
+    "rating": 4.8,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Budget Twin Room",
+    "shortDescription": "Economical twin room with free breakfast.",
+    "longDescription": "Perfect for friends or family on a budget. Clean and tidy twin beds, attached bathroom, basic furniture, and complementary breakfast.",
+    "image": "https://i.ibb.co/Q7xs1Yrk/Budget-Twin-Room.jpg",
+    "price": 70,
+    "location": "Barisal",
+    "rating": 3.9,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Luxury Honeymoon Suite",
+    "shortDescription": "Perfect for couples with jacuzzi and candlelight setup.",
+    "longDescription": "The honeymoon suite includes a jacuzzi, soft lighting, candlelight dinner setup, romantic decorations, and exclusive couple services.",
+    "image": "https://i.ibb.co/Xk7qSMWg/Luxury-Honeymoon-Suite.jpg",
+    "price": 220,
+    "location": "Bandarban",
+    "rating": 5.0,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Heritage Room",
+    "shortDescription": "Classic decor with wood interior, perfect for couples.",
+    "longDescription": "Heritage Room features vintage wooden furniture, soft lighting, warm ambiance, and a charming stay experience with cultural touch.",
+    "image": "https://i.ibb.co/1fTH9pht/Heritage-Room.jpg",
+    "price": 90,
+    "location": "Khulna",
+    "rating": 4.1,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Premium Twin Room",
+    "shortDescription": "Two twin beds, AC, minibar, and locker.",
+    "longDescription": "Ideal for business or family travelers. This room includes two separate beds, air conditioning, a minibar, secure locker, and workspace.",
+    "image": "https://i.ibb.co/Xvt4CGh/Premium-Twin-Room.webp",
+    "price": 110,
+    "location": "Dhaka",
+    "rating": 4.4,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Single Room with View",
+    "shortDescription": "Single bed with lake view and work desk.",
+    "longDescription": "A small but cozy room with a lakeside view, a clean bathroom, a comfortable single bed, and a desk for working professionals.",
+    "image": "https://i.ibb.co/Y7F2wFT2/Single-Room-with-View.jpg",
+    "price": 65,
+    "location": "Cox's Bazar",
+    "rating": 4.0,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Single Room with View",
+    "shortDescription": "Spacious room for 4 with breakfast included.",
+    "longDescription": "Great for families, this room features 2 double beds, an attached bathroom, breakfast service, and room service on call.",
+    "image": "https://i.ibb.co/QvD2cS49/Single-Room-with-View2.jpg",
+    "price": 140,
+    "location": "Rajshahi",
+    "rating": 4.2,
+    "availability": true,
+    "reviews": []
+  },
+  {
+    "title": "Cozy Budget Room",
+    "shortDescription": "Perfect for solo travelers. Clean and affordable.",
+    "longDescription": "Simple and neat accommodation best suited for solo or budget-conscious travelers. Includes Wi-Fi, fan, bed, and shared washroom.",
+    "image": "https://i.ibb.co/1GPN7NNW/Cozy-Budget-Room.webp",
+    "price": 50,
+    "location": "Chattogram",
+    "rating": 3.8,
+    "availability": true,
+    "reviews": []
+  }
+]
