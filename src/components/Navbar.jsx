@@ -10,7 +10,11 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to={"rooms"}>Rooms </NavLink>{" "}
+        <NavLink to={"/"}>Home </NavLink>{" "}
+      </li>
+
+      <li>
+        <NavLink to={"/rooms"}>Rooms </NavLink>{" "}
       </li>
       {user && (
         <li>
