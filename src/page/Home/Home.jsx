@@ -4,6 +4,7 @@ import MapDetails from "./MapDetails";
 import FeaturedRooms from "./FeaturedRooms";
 import LatestReviews from "./LatestReviews";
 import OfferModal from "./OfferModal";
+import WhyBookWithUs from "./WhyBookWithUs";
 
 const Home = () => {
   const [showOffer, setShowOffer] = useState(false);
@@ -42,6 +43,7 @@ const Home = () => {
           onClose={() => setShowOffer(false)}
           offer={offerData}
         ></OfferModal>
+        <WhyBookWithUs></WhyBookWithUs>
       </div>
     </>
   );

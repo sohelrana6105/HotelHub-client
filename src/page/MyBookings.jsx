@@ -5,6 +5,7 @@ import axios from "axios";
 import MyBookingsRow from "./MyBookingsRow";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyBookings = () => {
   const { user } = use(Authcontext);
@@ -18,10 +19,13 @@ const MyBookings = () => {
 
   const [showReviewModal, setShowReviewModal] = useState(false);
 
+  // console.log(user.accessToken);
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
     if (user?.email) {
-      axios
-        .get(`http://localhost:3000/my-bookings?email=${user.email}`)
+      axiosSecure
+        .get(`/my-bookings?email=${user.email}`)
         .then((res) => {
           setBookings(res.data);
           setLoading(false);
@@ -31,12 +35,9 @@ const MyBookings = () => {
           setLoading(false);
         });
     }
-  }, [user]);
-  console.log(bookings);
+  }, [user, axiosSecure]);
 
   const BookingCancleHanlde = (roomId) => {
-    // console.log("myBookings works");
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -48,7 +49,6 @@ const MyBookings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(`http://localhost:3000/bookings/${roomId}`).then((res) => {
-          console.log(res);
           if (res.data.deletedCount > 0 && res.data.modifiedCount > 0) {
             Swal.fire({
               title: "Deleted!",
@@ -78,8 +78,6 @@ const MyBookings = () => {
       comment,
       timestamp: new Date(),
     };
-
-    console.log(newReview);
 
     if (!selectedRoomId) {
       return Swal.fire("Error", "No room selected for review!", "error");

@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       { path: "rooms", Component: Rooms },
-      { path: "/room/:id", Component: RoomDetails },
+      { path: "room/:id", Component: RoomDetails },
       {
         path: "myBookings",
         element: (
