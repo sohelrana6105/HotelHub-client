@@ -20,10 +20,10 @@ const RoomDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/rooms/${id}`)
+      .get(`https://hotel-hub-server.vercel.app/rooms/${id}`)
       .then((res) => setRoom(res.data));
     axios
-      .get(`http://localhost:3000/rooms/${id}/reviews`)
+      .get(`https://hotel-hub-server.vercel.app/rooms/${id}/reviews`)
       .then((res) => setReviews(res.data));
   }, [id]);
   // console.log(room);
@@ -65,7 +65,7 @@ const RoomDetails = () => {
     }
     try {
       const res = await axios.post(
-        `http://localhost:3000/rooms/${id}/review`,
+        `https://hotel-hub-server.vercel.app/rooms/${id}/review`,
         newReview
       );
 
@@ -107,11 +107,14 @@ const RoomDetails = () => {
       price: room.price,
     };
     console.log(bookingInfo);
-    const res = await axios.post("http://localhost:3000/bookings", bookingInfo);
+    const res = await axios.post(
+      "https://hotel-hub-server.vercel.app/bookings",
+      bookingInfo
+    );
     console.log("bookings info send", res.data);
     if (res.data?.insertedId) {
       await axios
-        .patch(`http://localhost:3000/rooms/${id}/availability`, {
+        .patch(`https://hotel-hub-server.vercel.app/rooms/${id}/availability`, {
           availability: false,
         })
         .then((res) => console.log("patch method works and update", res.data))
@@ -124,7 +127,7 @@ const RoomDetails = () => {
 
   const deleteReview = (timestamp) => {
     axios
-      .delete(`http://localhost:3000/rooms/${id}/review`, {
+      .delete(`https://hotel-hub-server.vercel.app/rooms/${id}/review`, {
         data: {
           userEmail: user.email,
           timestamp: timestamp,

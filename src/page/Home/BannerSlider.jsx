@@ -9,7 +9,7 @@ const BannerSlider = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/rooms").then((res) => {
+    axios.get("https://hotel-hub-server.vercel.app/rooms").then((res) => {
       setTimeout(() => {
         setRooms(res.data);
         setLoading(false);

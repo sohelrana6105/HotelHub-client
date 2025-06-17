@@ -48,15 +48,17 @@ const MyBookings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/bookings/${roomId}`).then((res) => {
-          if (res.data.deletedCount > 0 && res.data.modifiedCount > 0) {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-          }
-        });
+        axios
+          .delete(`https://hotel-hub-server.vercel.app/bookings/${roomId}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0 && res.data.modifiedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
 
         const filterBookings = bookings.filter((b) => b.roomId !== roomId);
         setBookings(filterBookings);
@@ -86,7 +88,7 @@ const MyBookings = () => {
     // }
     try {
       const res = await axios.post(
-        `http://localhost:3000/rooms/${selectedRoomId}/review`,
+        `https://hotel-hub-server.vercel.app/rooms/${selectedRoomId}/review`,
         newReview
       );
 
@@ -127,7 +129,7 @@ const MyBookings = () => {
 
     try {
       const res = await axios.patch(
-        `http://localhost:3000/bookings/${roomId}`,
+        `https://hotel-hub-server.vercel.app/bookings/${roomId}`,
         {
           newDate,
           email: user.email,

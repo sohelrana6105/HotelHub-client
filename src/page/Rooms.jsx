@@ -9,11 +9,15 @@ const Rooms = () => {
 
   useEffect(() => {
     if (selectedRange === "all") {
-      axios("http://localhost:3000/rooms").then((res) => setRooms(res.data));
+      axios("https://hotel-hub-server.vercel.app/rooms").then((res) =>
+        setRooms(res.data)
+      );
     } else {
       const [min, max] = selectedRange.split("-").map(Number);
       axios
-        .get(`http://localhost:3000/rooms/filter?min=${min}&max=${max}`)
+        .get(
+          `https://hotel-hub-server.vercel.app/rooms/filter?min=${min}&max=${max}`
+        )
         .then((res) => setRooms(res.data));
     }
   }, [selectedRange]);

@@ -10,7 +10,7 @@ const FeaturedRooms = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/featured")
+      .get("https://hotel-hub-server.vercel.app/featured")
       .then((res) => setRooms(res.data));
     setLoading(false);
   }, []);

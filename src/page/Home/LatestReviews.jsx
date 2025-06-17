@@ -8,10 +8,12 @@ const LatestReviews = () => {
   const [recentReviews, setRecentReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get("http://localhost:3000/home-reviews").then((res) => {
-      setRecentReviews(res.data);
-      setLoading(false);
-    });
+    axios
+      .get("https://hotel-hub-server.vercel.app/home-reviews")
+      .then((res) => {
+        setRecentReviews(res.data);
+        setLoading(false);
+      });
   }, []);
 
   console.log(recentReviews);
