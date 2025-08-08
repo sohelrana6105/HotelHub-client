@@ -1,12 +1,45 @@
-# React + Vite
+# 🏨 Hotel Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hotel Hub is a modern and user-friendly hotel booking web application that allows users to browse available hotels, view detailed information, and make bookings with ease. It is designed for travelers who want convenient access to accommodations and for hotel owners who wish to manage their listings.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Project Link  
+[🔗 View Hotel Hub Live](https://hotel-hub-client.vercel.app)  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🖼 Screenshot  
+![Hotel Hub Screenshot](src/assets/hotel_hub_banner.png)  
+
+---
+
+## 🛠 Technologies Used  
+- **React.js** – Frontend library for building the UI  
+- **React Router DOM** – Navigation and routing  
+- **Tailwind CSS** – Utility-first CSS framework for styling  
+- **DaisyUI** – Tailwind CSS UI component library  
+- **Axios** – Data fetching and API integration  
+- **Firebase Authentication** – User login and registration  
+- **Vite** – Development and build tool  
+
+---
+
+## ✨ Core Features  
+- 🔍 Browse a wide range of hotels with detailed information.  
+- 🖼 High-quality images and hotel descriptions.  
+- 📅 Booking system with date and availability management.  
+- 🔐 Secure login and registration using Firebase Authentication.  
+- 📱 Fully responsive design for mobile, tablet, and desktop.  
+
+---
+
+## 📦 Dependencies  
+```bash
+react  
+react-dom  
+react-router-dom  
+tailwindcss  
+daisyui  
+axios  
+firebase  
