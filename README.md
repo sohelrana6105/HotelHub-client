@@ -5,12 +5,8 @@ Hotel Hub is a modern and user-friendly hotel booking web application that allow
 ---
 
 ## 🌐 Live Project Link  
-[🔗 View Hotel Hub Live](https://hotel-hub-client.vercel.app)  
+[🔗 View Hotel Hub Live]([https://hotel-hub-client.vercel.app](https://hotelhub-be0aa.web.app/))  
 
----
-
-## 🖼 Screenshot  
-![Hotel Hub Screenshot](src/assets/hotel_hub_banner.png)  
 
 ---
 
