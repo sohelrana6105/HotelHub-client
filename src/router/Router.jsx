@@ -10,6 +10,9 @@ import Notfound from "../page/Notfound";
 import RoomDetails from "../page/RoomDetails";
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../page/dashboard/Dashboard";
+import DashboardPrivateroutes from "../privatesRoutes/DashboardPrivateroutes";
+import Profile from "../page/dashboard/Profile";
+import DashboardHome from "../page/dashboard/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -41,14 +44,18 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     // Component: DashboardLayout,
     element: (
-      <PrivateRoutes>
-        <Rootlayout />
-      </PrivateRoutes>
+      <DashboardPrivateroutes>
+        <DashboardLayout></DashboardLayout>
+      </DashboardPrivateroutes>
     ),
     children: [
       {
-        index: true,
-        Component: Dashboard,
+        path: "",
+        Component: DashboardHome,
+      },
+      {
+        path: "myprofile",
+        Component: Profile,
       },
     ],
   },

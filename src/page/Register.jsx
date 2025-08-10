@@ -51,6 +51,17 @@ const Register = () => {
           .then(() => {
             setUser(...user, { displayName: name, photoURL: inputurl });
             console.log("User created succensfully");
+
+            // const userData = {
+            //   name,
+            //   email,
+            //   photoURL: inputurl,
+            //   createdAt: new Date().toISOString, // sets to now
+            //   lastLogin: new Date().toISOString, // sets to now
+            // };
+
+            // const res = axios.post("http://localhost:3000/users", userData);
+            // console.log(res);
           })
           .catch((error) => error.message);
         // save profile info in the db
