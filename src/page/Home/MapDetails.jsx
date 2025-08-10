@@ -1,15 +1,32 @@
 import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+// 🛠 Fix for default Leaflet marker icons
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 const MapDetails = () => {
   return (
-    <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg my-10">
+    <div className="relative my-10 h-[400px]">
       <MapContainer
-        center={[23.8103, 90.4125]} // Example: Dhaka
+        center={[23.8103, 90.4125]}
         zoom={13}
-        scrollWheelZoom={true}
-        style={{ height: "100%", width: "100%" }}
+        scrollWheelZoom={false}
+        style={{
+          height: "100%",
+          width: "100%",
+          zIndex: 0, // ⬅️ forces map to be under navbar
+        }}
+        className="rounded-lg shadow-lg"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'

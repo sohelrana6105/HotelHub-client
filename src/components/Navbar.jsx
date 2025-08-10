@@ -10,16 +10,22 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to={"/"}>Home </NavLink>{" "}
+        <NavLink to={"/"}>Home </NavLink>
       </li>
 
       <li>
-        <NavLink to={"/rooms"}>Rooms </NavLink>{" "}
+        <NavLink to={"/rooms"}>Rooms </NavLink>
       </li>
       {user && (
-        <li>
-          <NavLink to={"/myBookings"}>My Bookings </NavLink>{" "}
-        </li>
+        <>
+          <li>
+            <NavLink to={"/myBookings"}>My Bookings </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard"}>Dashboard </NavLink>
+            <NavLink to={"/myprofile"}>Profile </NavLink>
+          </li>
+        </>
       )}
     </>
   );
@@ -35,7 +41,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-100 shadow-sm px-10 lg:px-14 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

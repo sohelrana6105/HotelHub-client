@@ -8,6 +8,8 @@ import MyBookings from "../page/MyBookings";
 import Rooms from "../page/Rooms";
 import Notfound from "../page/Notfound";
 import RoomDetails from "../page/RoomDetails";
+import DashboardLayout from "../layout/DashboardLayout";
+import Dashboard from "../page/dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,23 @@ export const router = createBrowserRouter([
       },
       { path: "register", Component: Register },
       { path: "login", Component: Login },
+    ],
+  },
+
+  // Dashboard layout
+  {
+    path: "/dashboard",
+    // Component: DashboardLayout,
+    element: (
+      <PrivateRoutes>
+        <Rootlayout />
+      </PrivateRoutes>
+    ),
+    children: [
+      {
+        index: true,
+        Component: Dashboard,
+      },
     ],
   },
 ]);

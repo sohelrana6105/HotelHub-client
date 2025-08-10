@@ -6,6 +6,7 @@ import MyBookingsRow from "./MyBookingsRow";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import BookingSkeleton from "../components/skeleton/BookingSkeleton";
 
 const MyBookings = () => {
   const { user } = use(Authcontext);
@@ -152,128 +153,134 @@ const MyBookings = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center mt-12">
-        <span className="loading loading-bars loading-lg"></span>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="flex justify-center mt-12">
+  //       <span className="loading loading-bars loading-lg"></span>
+  //     </div>
+  //   );
+  // }
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">My Bookings</h2>
-      {bookings.length === 0 ? (
-        <p className="text-gray-600">You haven't booked any rooms yet.</p>
+    <div>
+      {loading ? (
+        <BookingSkeleton />
       ) : (
-        <div className="overflow-x-auto rounded-lg shadow">
-          <table className="min-w-full text-sm text-left text-gray-600 border border-gray-200">
-            <thead className="bg-indigo-50 text-gray-800 text-sm uppercase">
-              <tr>
-                <th className="px-4 py-3">Image</th>
-                <th className="px-4 py-3">Title</th>
-                <th className="px-4 py-3">Location</th>
-                <th className="px-4 py-3">Date</th>
-                <th className="px-4 py-3">Rating</th>
-                <th className="px-4 py-3">Price</th>
-                <th className="px-4 py-3 text-center">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bookings.map((booking, i) => (
-                <MyBookingsRow
-                  key={i}
-                  booking={booking}
-                  BookingCancleHanlde={BookingCancleHanlde}
-                  setShowReviewModal={setShowReviewModal}
-                  setSelectedRoomId={setSelectedRoomId}
-                  setSelectedBookingDate={setSelectedBookingDate}
-                  setShowUpdateModal={setShowUpdateModal}
-                ></MyBookingsRow>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">My Bookings</h2>
+          {bookings.length === 0 ? (
+            <p className="text-gray-600">You haven't booked any rooms yet.</p>
+          ) : (
+            <div className="overflow-x-auto rounded-lg shadow">
+              <table className="min-w-full text-sm text-left text-gray-600 border border-gray-200">
+                <thead className="bg-indigo-50 text-gray-800 text-sm uppercase">
+                  <tr>
+                    <th className="px-4 py-3">Image</th>
+                    <th className="px-4 py-3">Title</th>
+                    <th className="px-4 py-3">Location</th>
+                    <th className="px-4 py-3">Date</th>
+                    <th className="px-4 py-3">Rating</th>
+                    <th className="px-4 py-3">Price</th>
+                    <th className="px-4 py-3 text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bookings.map((booking, i) => (
+                    <MyBookingsRow
+                      key={i}
+                      booking={booking}
+                      BookingCancleHanlde={BookingCancleHanlde}
+                      setShowReviewModal={setShowReviewModal}
+                      setSelectedRoomId={setSelectedRoomId}
+                      setSelectedBookingDate={setSelectedBookingDate}
+                      setShowUpdateModal={setShowUpdateModal}
+                    ></MyBookingsRow>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
-      {/* show Review modal  again*/}
+          {/* show Review modal  again*/}
 
-      {showReviewModal && (
-        <div className="modal modal-open overflow-visible z-[9999]">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg mb-4">Add a Review</h3>
-            <form onSubmit={handleReviewSubmitAgain}>
-              <input
-                name="userName"
-                type="text"
-                value={user.displayName}
-                readOnly
-                className="input w-full mb-2"
-              />
-              <input
-                name="rating"
-                type="number"
-                min="1"
-                max="5"
-                placeholder="Rating 1 to 5 "
-                required
-                className="input w-full mb-2"
-              />
-              <textarea
-                name="comment"
-                placeholder="Write your review..."
-                required
-                className="textarea w-full mb-2"
-              />
-              <div className="modal-action">
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-                <button
-                  onClick={() => setShowReviewModal(false)}
-                  className="btn"
-                >
-                  Close
-                </button>
+          {showReviewModal && (
+            <div className="modal modal-open overflow-visible z-[9999]">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg mb-4">Add a Review</h3>
+                <form onSubmit={handleReviewSubmitAgain}>
+                  <input
+                    name="userName"
+                    type="text"
+                    value={user.displayName}
+                    readOnly
+                    className="input w-full mb-2"
+                  />
+                  <input
+                    name="rating"
+                    type="number"
+                    min="1"
+                    max="5"
+                    placeholder="Rating 1 to 5 "
+                    required
+                    className="input w-full mb-2"
+                  />
+                  <textarea
+                    name="comment"
+                    placeholder="Write your review..."
+                    required
+                    className="textarea w-full mb-2"
+                  />
+                  <div className="modal-action">
+                    <button type="submit" className="btn btn-primary">
+                      Submit
+                    </button>
+                    <button
+                      onClick={() => setShowReviewModal(false)}
+                      className="btn"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-        </div>
-      )}
+            </div>
+          )}
 
-      {/*  show booking moda again  */}
+          {/*  show booking moda again  */}
 
-      {showUpdateModal && (
-        <div className="modal modal-open z-[9999]">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg mb-4">Update Booking Date</h3>
-            <form
-              onSubmit={(e) => handleBookingDateUpdate(e, selectedRoomId)}
-              className="space-y-4"
-            >
-              <input
-                type="date"
-                name="newDate"
-                defaultValue={format(
-                  new Date(selectedBookingDate),
-                  "yyyy-MM-dd"
-                )}
-                required
-                className="input w-full"
-              />
-              <div className="modal-action">
-                <button type="submit" className="btn btn-primary">
-                  Update
-                </button>
-                <button
-                  onClick={() => setShowUpdateModal(false)}
-                  className="btn"
-                  type="button"
+          {showUpdateModal && (
+            <div className="modal modal-open z-[9999]">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg mb-4">Update Booking Date</h3>
+                <form
+                  onSubmit={(e) => handleBookingDateUpdate(e, selectedRoomId)}
+                  className="space-y-4"
                 >
-                  Close
-                </button>
+                  <input
+                    type="date"
+                    name="newDate"
+                    defaultValue={format(
+                      new Date(selectedBookingDate),
+                      "yyyy-MM-dd"
+                    )}
+                    required
+                    className="input w-full"
+                  />
+                  <div className="modal-action">
+                    <button type="submit" className="btn btn-primary">
+                      Update
+                    </button>
+                    <button
+                      onClick={() => setShowUpdateModal(false)}
+                      className="btn"
+                      type="button"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
+            </div>
+          )}
         </div>
       )}
     </div>

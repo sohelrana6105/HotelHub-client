@@ -81,7 +81,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="hero  py-10 bg-[url('/register-logo.jpg')]">
+      <div className="hero  py-10 bg-[url('/bg-hotel.jpg')]">
         <div className="hero-content flex-col lg:flex-row-reverse ">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body bg-[#89b635]">
